@@ -33,32 +33,22 @@ int cntNumberOfNodes(Node *root)
 bool CheckComplete(Node *root, int index, int num)
 {
     if (root == NULL)
-    {
         return true;
-    }
     if (index >= num)
-    {
         return false;
-    }
     return CheckComplete(root->left, 2 * index + 1, num) && CheckComplete(root->right, 2 * index + 2, num);
 }
 
 bool CheckHeap(Node *root)
 {
     if (root == NULL)
-    {
         return true;
-    }
 
     if (root->left && root->data < root->left->data)
-    {
         return false;
-    }
 
     if (root->right && root->data < root->right->data)
-    {
         return false;
-    }
 
     return CheckHeap(root->left) && CheckHeap(root->right);
 }
